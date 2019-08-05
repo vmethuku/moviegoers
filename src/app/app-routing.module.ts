@@ -5,7 +5,7 @@ import { BoxOfficeComponent } from './box-office/box-office.component';
 
 const routes: Routes = [
     { path: 'box-office', component: BoxOfficeComponent },
-    { path: '', redirectTo: '/box-office', pathMatch: 'full'}
+    { path: '', redirectTo: 'box-office', pathMatch: 'full'}
 ];
 
 @NgModule({

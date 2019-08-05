@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+.modal {
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow-y: auto !important;
+}
+.modal::-webkit-scrollbar {
+    width: 8px;
+}
+.modal::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 9px;
+    border: solid 1px #ddd;
+}
+
+html::-webkit-scrollbar {
+    width: 8px;
+}
+html::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 9px;
+    border: solid 1px #ddd;
+}

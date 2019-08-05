@@ -1,40 +1,63 @@
 import { Injectable } from '@angular/core';
+import { DialogService } from 'ng2-bootstrap-modal';
+import { MovieDetailsModalComponent } from '../movie-details-modal/movie-details-modal.component';
 
 export interface MovieDetails {
-  name: string,
-  caption: string,
-  thumbnailimageSrc: string,
-  OverlayimageSrc: string,
-  desc: string,
-  rating: number,
-  popularity: number,
-  runTime: string,
-  budget: number,
-  language: string,
-  releaseDate: string,
-  crew: CrewDetails,
-  cast: CastDetails
+  name: string;
+  caption: string;
+  thumbnailimageSrc: string;
+  OverlayimageSrc: string;
+  desc: string;
+  rating: number;
+  popularity: number;
+  runTime: string;
+  budget: number;
+  language: string;
+  releaseDate: Date;
+  crew: CrewDetails;
+  cast: CastDetails;
+  [key: string]: any;
 }
 
 export interface CrewDetails {
-  editedBy: string,
-  country: string,
-  productionCompany: string,
+  editedBy: string;
+  country: string;
+  productionCompany: string;
   distribytedBy: string
 }
 
 export interface CastDetails {
-  actor1: string,
-  actor2: string,
+  actor1: string;
+  actor2: string;
   actor3: string
 }
+
+export namespace enums {
+  export enum enum_searchby {
+    none = 0,
+    name = 1,
+    rating,
+    popularity,
+    runTime,
+    budget,
+    language,
+    releaseDate,
+    crew,
+    cast,
+  }
+}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoxOfficeService {
 
-  constructor() { }
+  constructor(private _dialog: DialogService) { }
+
+  openMovieDetails(movieDetails: MovieDetails) {
+    return this._dialog.addDialog(MovieDetailsModalComponent, { movie: movieDetails }, { closeByClickingOutside: true });
+  }
 
   getMovies(): MovieDetails[] {
     return [
@@ -49,7 +72,7 @@ export class BoxOfficeService {
         runTime: '120 min',
         budget: 63000000,
         language: 'english',
-        releaseDate: '8/2/2019',
+        releaseDate: new Date('10/2/2019'),
         crew: {
           editedBy: 'Mark Day',
           country: 'United Kingdom; United States',
@@ -73,7 +96,7 @@ export class BoxOfficeService {
         runTime: '120 min',
         budget: 63000000,
         language: 'english',
-        releaseDate: '8/2/2019',
+        releaseDate: new Date('8/23/2019'),
         crew: {
           editedBy: 'Mark Day',
           country: 'United Kingdom; United States',
@@ -92,12 +115,12 @@ export class BoxOfficeService {
         thumbnailimageSrc: 'assets/Spider-Man-Far-From-Home-timg.jpg',
         OverlayimageSrc: 'assets/Spider-Man-Far-From-Home-oimg.jpg',
         desc: 'Peter Parker\'s relaxing European vacation takes an unexpected turn when Nick Fury suddenly shows up in his hotel room.Parker soon finds himself donning the Spider - Man...',
-         rating: 2,
+        rating: 2,
         popularity: 14685,
         runTime: '120 min',
         budget: 63000000,
         language: 'english',
-        releaseDate: '8/2/2019',
+        releaseDate: new Date('8/1/2019'),
         crew: {
           editedBy: 'Mark Day',
           country: 'United Kingdom; United States',
@@ -121,7 +144,7 @@ export class BoxOfficeService {
         runTime: '120 min',
         budget: 63000000,
         language: 'english',
-        releaseDate: '8/2/2019',
+        releaseDate: new Date('7/2/2019'),
         crew: {
           editedBy: 'Mark Day',
           country: 'United Kingdom; United States',
@@ -145,7 +168,7 @@ export class BoxOfficeService {
         runTime: '120 min',
         budget: 63000000,
         language: 'english',
-        releaseDate: '8/2/2019',
+        releaseDate: new Date('12/2/2019'),
         crew: {
           editedBy: 'Mark Day',
           country: 'United Kingdom; United States',
@@ -169,7 +192,7 @@ export class BoxOfficeService {
         runTime: '120 min',
         budget: 63000000,
         language: 'english',
-        releaseDate: '8/2/2019',
+        releaseDate: new Date('6/2/2019'),
         crew: {
           editedBy: 'Mark Day',
           country: 'United Kingdom; United States',
@@ -193,7 +216,7 @@ export class BoxOfficeService {
         budget: 63000000,
         popularity: 17685,
         language: 'english',
-        releaseDate: '8/2/2019',
+        releaseDate: new Date('4/2/2019'),
         crew: {
           editedBy: 'Mark Day',
           country: 'United Kingdom; United States',
@@ -212,12 +235,12 @@ export class BoxOfficeService {
         thumbnailimageSrc: 'assets/ready-or-not-timg.jpg',
         OverlayimageSrc: 'assets/ready-or-not-oimg.jpg',
         desc: 'Grace couldn\'t be happier after she marries the man of her dreams at his family\s luxurious estate. There\'s just one catch --she must now hide from midnight until dawn...',
-         rating: 4,
+        rating: 4,
         popularity: 17685,
         runTime: '120 min',
         budget: 63000000,
         language: 'english',
-        releaseDate: '8/2/2019',
+        releaseDate: new Date('8/2/2019'),
         crew: {
           editedBy: 'Mark Day',
           country: 'United Kingdom; United States',

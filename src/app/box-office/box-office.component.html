@@ -1,9 +1,35 @@
-<div class="search-bar"></div>
+<h2>Movie Zone</h2>
 
-<div class="movie-container">
-  <div class="d-flex justify-content-start">
-    <div class="movie-card">
-      <app-movie-card [details]="movieDetails"></app-movie-card>
-    </div>
+
+<div class="search-bar d-flex justify-content-start">
+  <select name="" id="" class="form-control" [(ngModel)]="searchBy">
+    <option [value]="enum_searchby.none">Search By</option>
+    <option [value]="enum_searchby.name">Movie Name</option>
+    <option [value]="enum_searchby.rating">Rating</option>
+    <option [value]="enum_searchby.popularity">Popularity</option>
+    <option [value]="enum_searchby.runTime">Movie Span</option>
+    <option [value]="enum_searchby.language">Language</option>
+    <option [value]="enum_searchby.releaseDate">Release Date</option>
+    <option [value]="enum_searchby.crew">Crew</option>
+    <option [value]="enum_searchby.cast">Cast</option>
+  </select>
+
+  <input type="text" class="form-control" placeholder="Enter search text..." [(ngModel)]="filterValue">
+
+  <button class="btn btn-primary" (click)="onSearch()">Search</button>
+</div>
+
+<div class="sort-block">
+  <select name="" id="" class="form-control" [(ngModel)]="sortBy" (change)="onSort()">
+    <option [value]="enum_searchby.none">Sort By</option>
+    <option [value]="enum_searchby.rating">Rating</option>
+    <option [value]="enum_searchby.popularity">Popularity</option>
+    <option [value]="enum_searchby.releaseDate">Release Date</option>
+  </select>
+</div>
+
+<div class="movie-container d-flex justify-content-start">
+  <div class="movie-card" *ngFor="let movie of movies">
+    <app-movie-card [movie]="movie"></app-movie-card>
   </div>
 </div>

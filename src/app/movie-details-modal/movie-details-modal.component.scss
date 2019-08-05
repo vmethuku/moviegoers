@@ -1,0 +1,16 @@
+.star {
+    color: #d4af37;
+    margin-right: 5px;
+}
+
+.modal-dialog {
+    min-width: 50%;
+}
+
+/** component specific css */
+tr td:first-child {
+    width: 30%
+}
+tr td:last-child {
+    width: 70%
+}

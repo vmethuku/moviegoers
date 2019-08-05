@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MovieDetails, BoxOfficeService } from '../box-office/box-office.service';
 
 @Component({
   selector: 'app-movie-card',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() movie: MovieDetails;
+
+  constructor(private _box: BoxOfficeService) { }
 
   ngOnInit() {
+  }
+
+  onSeeDetails() {
+    this._box.openMovieDetails(this.movie)
   }
 
 }

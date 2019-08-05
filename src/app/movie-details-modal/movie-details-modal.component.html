@@ -1,3 +1,104 @@
-<p>
-  movie-details-modal works!
-</p>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">{{movie.name}}</h4>
+      <button type="button" class="close" (click)="close()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <img class="card-img-top" [src]="movie.OverlayimageSrc" height="400" alt="Card image">
+
+      <table>
+        <tbody>
+
+          <tr>
+            <td>
+              Rating:
+            </td>
+            <td>
+              <fa name="star" class="star" animation="spin" *ngFor="let i of rating"></fa>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Movie span:
+            </td>
+            <td>
+              {{movie.runTime}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Language:
+            </td>
+            <td>
+              {{movie.language}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Release Date:
+            </td>
+            <td>
+              {{movie.releaseDate.toDateString()}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Cast:
+            </td>
+            <td>
+              {{movie.cast.actor1}}, {{movie.cast.actor2}}, {{movie.cast.actor3}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Edited By:
+            </td>
+            <td>
+              {{movie.crew.editedBy}}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Produced By:
+            </td>
+            <td>
+              {{movie.crew.productionCompany}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Distributed By:
+            </td>
+            <td>
+              {{movie.crew.distribytedBy}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Country:
+            </td>
+            <td>
+              {{movie.crew.country}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Summary:
+            </td>
+            <td>
+              {{movie.desc}}
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
+      <button type="button" class="btn btn-default" (click)="close()">Cancel</button>
+    </div>
+  </div>
+</div>
