@@ -24,34 +24,42 @@ export class BoxOfficeComponent implements OnInit {
   onSort() {
     const sortCategory = this.enum_searchby[this.sortBy];
     this.movies = this.movies.sort((movie1, movie2) => {
-      if(typeof movie1[sortCategory] === 'object') {
+      if (typeof movie1[sortCategory] === 'object') {
         return new Date(movie1[sortCategory]).getTime() - new Date(movie2[sortCategory]).getTime();
       } else {
         return movie1[sortCategory] - movie2[sortCategory];
       }
-      
+
     });
-    
+
   }
+
 
   onSearch() {
     this.movies = [];
     const searchedCategory = this.enum_searchby[this.searchBy];
     const filtervalue = this.filterValue;
-    if(!filtervalue) {
+    if (!filtervalue) {
       this.movies = this._box.getMovies();
       return;
     }
-    for(let movie of this._box.getMovies()) {
-      if(typeof movie[searchedCategory] === 'object' && JSON.stringify(movie[searchedCategory]).toLowerCase().includes(this.filterValue.toLowerCase())) {
+    for (let movie of this._box.getMovies()) {
+      if (typeof movie[searchedCategory] === 'object' && JSON.stringify(movie[searchedCategory]).toLowerCase().includes(this.filterValue.toLowerCase())) {
         this.movies.push(movie);
-      } else if(typeof movie[searchedCategory] === 'number' && movie[searchedCategory] === parseInt(this.filterValue)) {
+      } else if (typeof movie[searchedCategory] === 'number' && movie[searchedCategory] === parseInt(this.filterValue)) {
         this.movies.push(movie);
-      }  else if(typeof movie[searchedCategory] === 'string' && movie[searchedCategory].toLowerCase().includes(this.filterValue.toLowerCase())) {
+      } else if (typeof movie[searchedCategory] === 'string' && movie[searchedCategory].toLowerCase().includes(this.filterValue.toLowerCase())) {
         this.movies.push(movie);
       }
     }
-    
+
+  }
+
+
+  onEnter(event) {
+    if (event.keydown === 13) {
+      this.onSearch();
+    }
   }
 
 }

@@ -3,7 +3,6 @@
 
 <div class="search-bar d-flex justify-content-start">
   <select name="" id="" class="form-control" [(ngModel)]="searchBy">
-    <option [value]="enum_searchby.none">Search By</option>
     <option [value]="enum_searchby.name">Movie Name</option>
     <option [value]="enum_searchby.rating">Rating</option>
     <option [value]="enum_searchby.popularity">Popularity</option>
@@ -14,7 +13,7 @@
     <option [value]="enum_searchby.cast">Cast</option>
   </select>
 
-  <input type="text" class="form-control" placeholder="Enter search text..." [(ngModel)]="filterValue">
+  <input type="text" class="form-control" (keydown)="onEnter($event)" placeholder="Enter search text..." [(ngModel)]="filterValue">
 
   <button class="btn btn-primary" (click)="onSearch()">Search</button>
 </div>

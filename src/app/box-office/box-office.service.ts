@@ -35,7 +35,7 @@ export interface CastDetails {
 export namespace enums {
   export enum enum_searchby {
     none = 0,
-    name = 1,
+    name = 0,
     rating,
     popularity,
     runTime,
@@ -89,7 +89,7 @@ export class BoxOfficeService {
         name: 'Once Upon A Time In Hollywood',
         caption: 'Deathly Hollows',
         thumbnailimageSrc: 'assets/once-upon-a-time -in-hollywood-timg.jpg',
-        OverlayimageSrc: 'assets/once-upon-a-time -in-hollywood-oimg.jpg',
+        OverlayimageSrc: 'assets/once-upon-a-time-in-hollywood-oimg.jpg',
         desc: 'Quentin Tarantino’s Once Upon a Time… in Hollywood visits 1969 Los Angeles, where everything is changing, as TV star Rick Dalton (Leonardo DiCaprio) and his longtime stunt double Cliff Booth (Brad Pitt) make their way around an industry they hardly recognize anymore. The ninth film from the writer-director features a large ensemble cast and multiple storylines in a tribute to the final moments of Hollywood’s golden age.',
         rating: 3,
         popularity: 15685,
@@ -113,7 +113,7 @@ export class BoxOfficeService {
         name: 'Spider-Man: Far From Home',
         caption: 'Deathly Hollows',
         thumbnailimageSrc: 'assets/Spider-Man-Far-From-Home-timg.jpg',
-        OverlayimageSrc: 'assets/Spider-Man-Far-From-Home-oimg.jpg',
+        OverlayimageSrc: 'assets/spyder-man-far-from-home-oimg.jpg',
         desc: 'Peter Parker\'s relaxing European vacation takes an unexpected turn when Nick Fury suddenly shows up in his hotel room.Parker soon finds himself donning the Spider - Man...',
         rating: 2,
         popularity: 14685,
@@ -184,8 +184,8 @@ export class BoxOfficeService {
       {
         name: 'The Art of Racing in the Rain',
         caption: 'Deathly Hollows',
-        thumbnailimageSrc: 'assets/harry-potter.jpg',
-        OverlayimageSrc: 'assets/harry-potter.jpg',
+        thumbnailimageSrc: 'assets/harry-potter-timg.jpg',
+        OverlayimageSrc: 'assets/harry-potter-oimg.jpg',
         desc: 'Denny Swift is a Formula One race car driver who understands that the techniques needed on the racetrack can also be used to successfully navigate everyday life. Besides...',
         rating: 5,
         popularity: 14685,
@@ -208,8 +208,8 @@ export class BoxOfficeService {
       {
         name: 'Brian Banks',
         caption: 'Deathly Hollows',
-        thumbnailimageSrc: 'assets/brain-banks-timg.jpg',
-        OverlayimageSrc: 'assets/brain-banks-oimg.jpg',
+        thumbnailimageSrc: 'assets/brian-banks-timg.jpg',
+        OverlayimageSrc: 'assets/brian-banks-oimg.jpg',
         desc: 'The inspirational true story of Brian Banks, an all-American high school football star who finds his life upended when he\'s wrongly convicted of a crime he didn\'t...',
         rating: 5,
         runTime: '120 min',
