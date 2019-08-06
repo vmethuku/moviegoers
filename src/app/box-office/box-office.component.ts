@@ -21,6 +21,12 @@ export class BoxOfficeComponent implements OnInit {
     this.movies = this._box.getMovies();
   }
 
+  onEnter(event) {
+    if (event.which === 13) {
+      this.onSearch();
+    }
+  }
+
   onSort() {
     const sortCategory = this.enum_searchby[this.sortBy];
     this.movies = this.movies.sort((movie1, movie2) => {
@@ -54,12 +60,4 @@ export class BoxOfficeComponent implements OnInit {
     }
 
   }
-
-
-  onEnter(event) {
-    if (event.keydown === 13) {
-      this.onSearch();
-    }
-  }
-
 }

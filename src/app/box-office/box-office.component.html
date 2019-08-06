@@ -13,7 +13,7 @@
     <option [value]="enum_searchby.cast">Cast</option>
   </select>
 
-  <input type="text" class="form-control" (keydown)="onEnter($event)" placeholder="Enter search text..." [(ngModel)]="filterValue">
+  <input type="text" class="form-control" (keyup)="onEnter($event)" placeholder="Enter search text..." [(ngModel)]="filterValue">
 
   <button class="btn btn-primary" (click)="onSearch()">Search</button>
 </div>
